@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product List</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+.products-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.product-card {
+    height: auto;
+	width: 300px;
+	margin: 10px;
+	background-color: #f9f9f9;
+	padding: 10px;
+	box-shadow: 0 0 10px #ccc;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.product-card img:hover{
+	transform: scale(1.2);
+	transition-duration: .5s;
+}
+
+.product-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 0 15px #aaa;
+}
+
+.product-card img {
+	width: 100%;
+}
+
+    </style>
+</head>
+<body>
+	<div class="products-container">
+		
+		<div class="product-card" data-category="home">
+            <img src="**url**" loading="eager">
+			<h2>**title**</h2>
+            <div style="display: flex; justify-content: space-between;">
+                <p style="display: inline;">$**price**</p> 
+                <p style="display: inline;">Rating **rating**</p>
+            </div>
+		</div>
+
+	<!-- <div class="products-container">
+		<div class="product-card" data-category="electronics">
+			<h2>Electronics Product 1</h2>
+			<p>$99.99</p>
+		</div>
+		<div class="product-card" data-category="electronics">
+			<h2>Electronics Product 7</h2>
+			<p>$990.99</p>
+		</div>
+		<div class="product-card" data-category="home">
+			<h2>Home Product 7</h2>
+			<p>$149.99</p>
+		</div>
+		<div class="product-card" data-category="electronics">
+			
+			<h2>Electronics Product 8</h2>
+			<p>$198.99</p>
+		</div>
+		
+		<div class="product-card" data-category="electronics">
+			
+			<h2>Electronics Product 2</h2>
+			<p>$199.99</p>
+		</div>
+		<div class="product-card" data-category="clothing">
+			
+			<h2>Clothing Product 8</h2>
+			<p>$79.99</p>
+		</div>
+	</div>
+
+	<div class="products-container">
+		<div class="product-card" data-category="electronics">
+			<h2>Electronics Product 5</h2>
+			<p>$990.99</p>
+		</div>
+		<div class="product-card" data-category="home">
+			<h2>Home Product 5</h2>
+			<p>$149.99</p>
+		</div>
+		<div class="product-card" data-category="clothing">
+			<h2>Clothing Product 5</h2>
+			<p>$49.99</p>
+		</div>
+		<div class="product-card" data-category="electronics">
+			
+			<h2>Electronics Product 6</h2>
+			<p>$198.99</p>
+		</div>
+		<div class="product-card" data-category="home">
+			
+			<h2>Home Product 6</h2>
+			<p>$99.99</p>
+		</div>
+		<div class="product-card" data-category="clothing">
+			
+			<h2>Clothing Product 6</h2>
+			<p>$79.99</p>
+		</div>
+	</div>
+	
+    <div class="products-container">
+		<div class="product-card" data-category="electronics">
+			<h2>Electronics Product 3</h2>
+			<p>$990.99</p>
+		</div>
+		<div class="product-card" data-category="home">
+			<h2>Home Product 3</h2>
+			<p>$149.99</p>
+		</div>
+		<div class="product-card" data-category="clothing">
+			<h2>Clothing Product 3</h2>
+			<p>$49.99</p>
+		</div>
+	</div> -->
+</body>
+</html>

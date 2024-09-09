@@ -29,6 +29,7 @@ prodsRouter.post('/product', router.addProoduct)
 prodsRouter.get('/product', router.getByName)
 prodsRouter.get('/product/:id', router.getById)
 prodsRouter.delete('/product/:id', router.deleteById)
+prodsRouter.put('/product', router.addRemovFav)
 
 async function db() {
    await mongoose.connect(`${process.env.DB_URI}`, {

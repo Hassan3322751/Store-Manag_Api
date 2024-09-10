@@ -26,7 +26,6 @@ app.get('/', (req, res)=>{
 
 prodsRouter.get('/products', router.getProoducts)
 prodsRouter.post('/product', router.addProoduct)
-prodsRouter.get('/product', router.getByName)
 prodsRouter.get('/product/:id', router.getById)
 prodsRouter.delete('/product/:id', router.deleteById)
 prodsRouter.put('/product', router.addRemovFav)

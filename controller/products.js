@@ -7,12 +7,18 @@ const paginate = require('../utils/paginate.js');
 exports.getProoducts = async (req, res)=>{
     const pageLimit = 9;
     const pageNo = req.query.page - 1 || 0;
-    const filters = req.query.filter || null;
+    const sorting = req.query.sortBy || null;
     const query = req.query.q || null;
-    const sortBy = filters;
+    // const filters = req.query.filters;
+    const filters = !req.query.filters ? {} : req.query.filters.split('.');
+    const filter = !req.query.filters ? {} : {favourite: filters[1]}
+    // console.log(!req.query.filters)
+    // console.log(filters.split('.'))
+
+    const sortBy = sorting;
 
     try {
-        const { results: products, count: docsCount } = await paginate(Product, query, pageNo, pageLimit, sortBy);
+        const { results: products, count: docsCount } = await paginate(Product, query, pageNo, pageLimit, sortBy, filter);
 
         res.json({
             products,

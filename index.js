@@ -11,7 +11,7 @@ const prodsRouter = express.Router();
 app.use(
     cors(
         {
-          origin: [`${ process.env.VERCEL_API }`, `${process.env.LOCAL_API}`],
+          origin: [`${ process.env.VERCEL_FRONTEND }`, `${process.env.LOCAL_FRONTEND}`],
           credentials: true,
           methods: ['GET', 'POST', 'PUT', 'DELETE'], 
           allowedHeaders: ['Content-Type', 'Authorization'],

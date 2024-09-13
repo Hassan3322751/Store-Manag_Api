@@ -7,8 +7,6 @@ const main = {
     Display: "For all products display Enter : lo--t:3000/html"
 }
 const html = fs.readFileSync('index.html', 'utf-8')
-const data = fs.readFileSync('products.json', 'utf-8')
-const products = JSON.parse(data).products;
   
 const server = http.createServer((req, res) => { 
     if(req.url.startsWith('/product')){

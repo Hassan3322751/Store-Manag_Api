@@ -1,7 +1,5 @@
-const fs = require('fs')
 const { Product } = require('../models/products');
 const { User } = require('../models/users');
-const data = JSON.parse(fs.readFileSync('products.json', 'utf-8'))
 const paginate = require('../utils/paginate.js');
 
 exports.getProoducts = async (req, res)=>{

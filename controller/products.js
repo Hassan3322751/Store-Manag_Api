@@ -18,6 +18,8 @@ exports.getProoducts = async (req, res)=>{
     try {
         const { results: products, count: docsCount } = await paginate(Product, query, pageNo, pageLimit, sortBy, filter);
 
+        // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173'); // Allow your frontend origin
+        // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); 
         res.json({
             products,
             docsCount: docsCount

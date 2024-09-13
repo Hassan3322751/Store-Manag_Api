@@ -8,7 +8,16 @@ env.config();
 const app = express();
 const prodsRouter = express.Router();
 
-app.use(cors())
+app.use(
+    cors(
+        {
+          origin: [`${ process.env.VERCEL_API }`, `${process.env.LOCAL_API}`],
+          credentials: true,
+          methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+          allowedHeaders: ['Content-Type', 'Authorization'],
+      }
+    )
+)
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(express.static('public'))   //Public files can be access by ---> lo----t:3000/publicFile.html

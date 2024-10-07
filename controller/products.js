@@ -2,24 +2,27 @@ const { Product } = require('../models/products');
 const { User } = require('../models/users');
 const paginate = require('../utils/paginate.js');
 
+exports.getAdminProducts = async(req, res) => {
+    try {
+        const products = await Product.find();
+        res.send(products)        
+    } catch (error) {
+        res.send(error)
+    }
+}
+
 exports.getProoducts = async (req, res)=>{
     const pageLimit = 9;
     const pageNo = req.query.page - 1 || 0;
     const sorting = req.query.sortBy || null;
     const query = req.query.q || null;
-    // const filters = req.query.filters;
     const filters = !req.query.filters ? {} : req.query.filters.split('.');
     const filter = !req.query.filters ? {} : {favourite: filters[1]}
-    // console.log(!req.query.filters)
-    // console.log(filters.split('.'))
-
     const sortBy = sorting;
 
     try {
         const { results: products, count: docsCount } = await paginate(Product, query, pageNo, pageLimit, sortBy, filter);
 
-        // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173'); // Allow your frontend origin
-        // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); 
         res.json({
             products,
             docsCount: docsCount
@@ -31,12 +34,11 @@ exports.getProoducts = async (req, res)=>{
 }
 
 exports.addProoduct = async (req, res)=>{
-    const user = new User()
+    console.log(req.body )
     const product = new Product(req.body)
-    product.user = user;
-    await user.save()
+
     await product.save().then((doc)=>{
-        res.status(201).json({Products: doc})
+        res.status(201).send(doc)
     }).catch((err)=>{
         res.json({"Error": err})
     });
@@ -59,14 +61,18 @@ exports.addRemovFav = async (req, res) => {
     }
 }
 
-    exports.getById = (req, res)=>{
-        const id = +req.params.id;
-        const product = data.products.find(p => p.id===id);
-        product ? res.json({Product: product}) : res.json({Product: "Product Not Found"})
+
+exports.getById = (req, res)=>{
+    const id = +req.params.id;
+    const product = data.products.find(p => p.id===id);
+    product ? res.json({Product: product}) : res.json({Product: "Product Not Found"})
+}
+exports.deleteById = async(req, res)=>{
+    try {
+        const id = req.params.id;
+        await Product.findByIdAndDelete(id);
+        res.send(200)     
+    } catch (error) {
+        res.send(error) 
     }
-    exports.deleteById = (req, res)=>{
-        const id = +req.params.id;
-        const product = data.products.find(p => p.id===id);
-        let removed = data.products.splice(data.products.indexOf(product),1)
-        product ? res.json({Product: removed}) : res.json({Product: "Product Not Found"})
-    }
+}

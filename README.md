@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  <h1>Store Management API Project <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/shopping-bags_1f6cd.png" alt="shopping bags" width="30"></h1>
+  <h1>Store Management API Project </h1>
 
   <h2>Project Description</h2>
   <p>Store Management API is a Node.js application providing backend services for managing a retail store.</p>
